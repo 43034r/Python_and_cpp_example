@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: main-container
-    image: your-main-image
+    image: 43034r/python_and_cpp_example:main
     volumeMounts:
     - name: app-volume
       mountPath: /app
@@ -22,8 +22,8 @@ spec:
     - name: app-volume
       mountPath: /source
   - name: builder
-    image: your-cpp-builder-image
-    command: ['sh', '-c', 'g++ /source/fibonacci.cpp -o /source/fibonacci && cp /source/fibonacci /app']
+    image: gcc:latest
+    command: ['sh', '-c', 'g++ -static /source/fibonacci.cpp -o /source/fibonacci && cp /source/fibonacci /app']
     volumeMounts:
     - name: app-volume
       mountPath: /source
