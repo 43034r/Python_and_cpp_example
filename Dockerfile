@@ -16,7 +16,7 @@ RUN useradd -ms /bin/bash appuser
 USER appuser
 ADD main.py /app
 RUN pip3 install python-dotenv
-CMD [ "python3", "./app/main.py" ]
+CMD [ "python3", "./main.py" ]
 
 
 
