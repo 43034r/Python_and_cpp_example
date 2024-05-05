@@ -9,7 +9,7 @@ int fibonacci(int n) {
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
-        std::cerr << "Использование: " << argv[0] << " <число>" << std::endl;
+        std::cerr << "Use: " << argv[0] << " <int>" << std::endl;
         return 1;
     }
 
@@ -17,12 +17,12 @@ int main(int argc, char* argv[]) {
 
     // Проверка на валидность введенного числа
     if (num < 0) {
-        std::cerr << "Число должно быть неотрицательным." << std::endl;
+        std::cerr << "Not allowed" << std::endl;
         return 1;
     }
 
     // Вычисление и вывод числа Фибоначчи
-    std::cout << "Число Фибоначчи для " << num << " = " << fibonacci(num) << std::endl;
+    std::cout << "Result " << num << " = " << fibonacci(num) << std::endl;
 
     return 0;
 }

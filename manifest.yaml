@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: main-container
+    image: your-main-image
+    volumeMounts:
+    - name: app-volume
+      mountPath: /app
+  initContainers:
+  - name: downloader
+    image: alpine/git
+    args:
+    - clone
+    - --single-branch
+    - --branch=main
+    - https://github.com/43034r/Python_and_cpp_example.git
+    - /source
+    volumeMounts:
+    - name: app-volume
+      mountPath: /source
+  - name: builder
+    image: your-cpp-builder-image
+    command: ['sh', '-c', 'g++ /source/fibonacci.cpp -o /source/fibonacci && cp /source/fibonacci /app']
+    volumeMounts:
+    - name: app-volume
+      mountPath: /source
+  volumes:
+  - name: app-volume
+    emptyDir: {}
+
