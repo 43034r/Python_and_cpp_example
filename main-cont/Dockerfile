@@ -5,7 +5,7 @@ WORKDIR /app
 RUN useradd -ms /bin/bash appuser
 RUN chown appuser -R /app/
 USER appuser
-ADD ../main.py /app
+ADD main.py /app
 RUN pip3 install python-dotenv
 CMD [ "python3", "./main.py" ]
 
