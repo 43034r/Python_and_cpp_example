@@ -13,7 +13,7 @@ WORKDIR /app
 # Копирование библиотеки из предыдущего образа в новый контейнер
 COPY --from=builder /app/fibonacci.cpp /app/fibonacci.cpp
 RUN useradd -ms /bin/bash appuser
-RUN CHOWN appuser -R /app/
+RUN chown appuser -R /app/
 USER appuser
 ADD main.py /app
 RUN pip3 install python-dotenv
