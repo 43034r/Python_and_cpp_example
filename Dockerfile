@@ -11,9 +11,9 @@ FROM python:3-slim
 # Установка рабочей директории внутри контейнера
 WORKDIR /app
 # Копирование библиотеки из предыдущего образа в новый контейнер
-COPY --from=builder /app/fibonacci.cpp /app/fibonacci.cpp
+COPY --from=builder /app/fibonacci /app/fibonacci
 RUN useradd -ms /bin/bash appuser
-RUN chmod 755 /app/fibonacci.cpp 
+RUN chmod 755 /app/fibonacci 
 RUN chown appuser -R /app/
 USER appuser
 ADD main.py /app
