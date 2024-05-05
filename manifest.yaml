@@ -24,7 +24,7 @@ spec:
       mountPath: /source
   - name: builder
     image: gcc:latest
-    command: ['sh', '-c', 'g++ -static /source/fibonacci.cpp -o /source/fibonacci && ls | grep -v "fibonacci" | xargs rm && cp /source/fibonacci /app']
+    command: ['sh', '-c', 'g++ -static /source/fibonacci.cpp -o /source/fibonacci && &&cp /source/fibonacci /app']
     volumeMounts:
     - name: app-volume
       mountPath: /source
