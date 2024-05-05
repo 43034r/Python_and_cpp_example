@@ -8,6 +8,7 @@ COPY . .
 RUN g++ -Wall -shared fibonacci.cpp -o fibonacci
 # Stage 2: Создание контейнера для размещения библиотеки
 FROM python:3-slim
+RUN sudo apt-get install --only-upgrade libstdc++6
 # Установка рабочей директории внутри контейнера
 WORKDIR /app
 # Копирование библиотеки из предыдущего образа в новый контейнер
