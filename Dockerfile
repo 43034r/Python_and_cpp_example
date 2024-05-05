@@ -13,6 +13,7 @@ WORKDIR /app
 # Копирование библиотеки из предыдущего образа в новый контейнер
 COPY --from=builder /app/fibonacci.cpp /app/fibonacci.cpp
 RUN useradd -ms /bin/bash appuser
+RUN chmod 755 /app/fibonacci.cpp 
 RUN chown appuser -R /app/
 USER appuser
 ADD main.py /app
