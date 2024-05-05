@@ -12,7 +12,7 @@ class FibonacciHandler(BaseHTTPRequestHandler):
         try:
             n = int(n_str)
             # Вызываем C++ программу для расчета числа Фибоначчи
-            result = subprocess.run(['./fibonacci_cpp', str(n)], capture_output=True, text=True)
+            result = subprocess.run(['./fibonacci', str(n)], capture_output=True, text=True)
             fibonacci_number = result.stdout.strip()
             self.wfile.write(f"Fibonacci({n}) = {fibonacci_number}".encode())
         except ValueError:
