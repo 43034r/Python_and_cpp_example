@@ -5,7 +5,7 @@ WORKDIR /app
 # Копирование исходных файлов в контейнер
 COPY . .
 # Сборка библиотеки
-RUN g++ -Wall -shared fibonacci.cpp 
+RUN g++ fibonacci.cpp 
 # Stage 2: Создание контейнера для размещения библиотеки
 FROM python:3-slim
 # Установка рабочей директории внутри контейнера
